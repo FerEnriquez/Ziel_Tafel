@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
 import List from './components/List';
+import Menu from './components/Menu';
 
 function App() {
   return (
-    <div >
-        <p>
-          Ziel tafel
-        </p>
-        <List name={"Fer"}/>
+    <div>
+      <Menu />
+      <List list={{name: "Month goals"}}/>
+      <List list={{name: "Week goals"}}/>
+      <List list={{name: "Day goals"}}/>
     </div>
   );
 }
