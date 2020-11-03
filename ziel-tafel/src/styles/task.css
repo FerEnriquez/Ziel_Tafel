@@ -69,12 +69,17 @@
   .cbx:hover span:first-child {
     border-color: #3c53c7;
   }
+
+  .inp-cbx:checked span:last-child:after{
+    position: absolute;
+  }
   
-  .inp-cbx:checked + .cbx span:first-child {
+ .inp-cbx:checked + .cbx span:first-child {
     border-color: #3c53c7;
     background: #3c53c7;
     animation: check 0.6s ease;
   }
+  /*
   .inp-cbx:checked + .cbx span:first-child svg {
     stroke-dashoffset: 0;
   }
@@ -90,7 +95,7 @@
   .inp-cbx:checked + .cbx span:last-child:after {
     transform: scaleX(1);
     transition: all 0.3s ease;
-  }
+  } */
   
   @keyframes check {
     50% {

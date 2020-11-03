@@ -13,12 +13,34 @@ class MenuComponent extends React.Component{
   }
 
   getMonth(){
-      if(this.state.currentMonth == 9){
+    switch(this.state.currentMonth){
+      case 0:
+        return "January";
+      case 1:
+        return "Febraury";
+      case 2:
+        return "March";
+      case 3:
+        return "April";
+      case 4:
+        return "May";
+      case 5:
+        return "June";
+      case 6: 
+        return "July";
+      case 7:
+        return "August";
+      case 8:
+        return "September";
+      case 9:
         return "October";
-      }
-      else{
-          return "None";
-      }
+      case 10:
+        return "November";
+      case 11:
+        return "December";
+      default:
+        return "Month";
+    }
   }
 
   render() {

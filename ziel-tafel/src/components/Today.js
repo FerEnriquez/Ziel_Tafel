@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from'react-dom';
 import PropTypes from 'prop-types';
-import '../styles/list-month.css';
+import '../styles/today.css';
 import Task from './Task.js';
 
 class ListComponent extends React.Component{
@@ -17,7 +17,6 @@ class ListComponent extends React.Component{
 
   static getDerivedStateFromProps(props, state) {
     return {
-      name: props.name_list,
       type: props.type_list  
     };
   }
@@ -27,7 +26,7 @@ class ListComponent extends React.Component{
       return (
         <div>
             <div className="list-square">
-                <div className="list-title">{this.state.name}</div>
+                <div className="list-title"> Today Goals</div>
                 <Task></Task>
                 <div className="add-item">
                   <form className="add-task">
@@ -47,10 +46,10 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-export default function List({ list: { name, type} }) {
+export default function List({ list: {type} }) {
   return (
     <div>
-      <ListComponent name_list={name} type_list={type} />
+      <ListComponent type_list={type} />
     </div>
   );
 }
@@ -58,6 +57,5 @@ export default function List({ list: { name, type} }) {
 List.propTypes = {
   list: PropTypes.shape({
     type: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
   }),
 };
