@@ -11,14 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.task-box {
-  display: inline-flex;
-  position: absolute;
-
-  margin-left: 200px;
-}
-
-.task-box > List {
-  margin: 0px;
-}

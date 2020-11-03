@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from'react-dom';
 import PropTypes from 'prop-types';
-import '../styles/task.css';
+import '../styles/task.css'
 
 class TaskComponent extends React.Component{
   
@@ -9,7 +9,8 @@ class TaskComponent extends React.Component{
     super(props);
     this.state = {
       id: '',
-      name: 'Tarea',
+      name: '',
+      status: '',
       items: [],
     };
     
@@ -17,23 +18,23 @@ class TaskComponent extends React.Component{
 
   static getDerivedStateFromProps(props, state) {
     return {
-      name: props.name
+      id: props.id_task,
+      name: props.name_task,
+      status: props.status_task
     };
   }
 
   render() {
-    const { items } = this.state;
       return (
         <div>
-            <input class="inp-cbx" id="cbx" type="checkbox" style={{display: 'none'}}/>
-            <label class="cbx" for="cbx">
-              <span> 
-              <svg width="12px" height="9px" viewbox="0 0 12 9">
-               <polyline points="1 5 4 8 11 1"></polyline>
-              </svg>
-              </span>
-              <span className="text-task">{this.state.name}</span>
-            </label>
+          <div className="box-task">
+            <span className="checkbox-task">
+              <input type="checkbox" />
+            </span>  
+            <span className="text-task">
+              {this.state.name}
+            </span>
+          </div>
         </div>
 
       );
@@ -45,16 +46,18 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-export default function Task({task:{name}}) {
+export default function Task({ task: { id, name, status } }) {
   return (
     <div>
-      <TaskComponent name={name} />
+      <TaskComponent id_task={id} name_task={name} status_task={status} />
     </div>
   );
 }
 
 Task.propTypes = {
-  task: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-  }),
-};
+    task: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      status: PropTypes.string.isRequired,
+    }),
+  };

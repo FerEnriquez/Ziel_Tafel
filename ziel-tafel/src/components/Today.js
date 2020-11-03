@@ -1,39 +1,63 @@
 import React from 'react';
 import ReactDOM from'react-dom';
 import PropTypes from 'prop-types';
-import '../styles/today.css';
+import Popup from 'reactjs-popup';
 import Task from './Task.js';
+import '../styles/today.css'
 
-class ListComponent extends React.Component{
+class TodayComponent extends React.Component{
   
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      type: '',
-      items: [],
+      day: '',
+      month: '',
+      year: '',
+      tasks: [],
     };
+    
   }
 
   static getDerivedStateFromProps(props, state) {
     return {
-      type: props.type_list  
+      day: props.day_today,
+      month: props.month_today,
+      year: props.year_today
     };
   }
 
   render() {
-    const { items } = this.state;
       return (
-        <div>
-            <div className="list-square">
-                <div className="list-title"> Today Goals</div>
-                <Task></Task>
-                <div className="add-item">
-                  <form className="add-task">
-                    <input placeholder="Enter task"></input>
-                    <button type="submit" className="button">+</button>
-                  </form>
-                </div>
+        <div className="box-today">
+            <span className="title-today">
+                To-do list
+            </span>
+
+            <span className="add-task">
+                <Popup trigger={
+                    <button className="button-addtask">+</button>
+                } modal>
+                {close => (
+                    <div className="modal">
+                    <a className="close" onClick={close}>
+                        &times;
+                    </a>           
+                    <div className="header"> New task </div>
+                    <div className="content">
+                        <input type="textbox"></input>
+                        
+                    </div>
+                    <div className="actions">
+                        <button> Add </button>
+
+                    </div>
+                    </div>
+                )}
+                </Popup>
+            </span>
+
+            <div className="task-box">
+                {/* <Task task = { {name: 'Leer'} }/> */}
             </div>
         </div>
 
@@ -42,20 +66,22 @@ class ListComponent extends React.Component{
 }
 
 ReactDOM.render(
-  <ListComponent />,
+  <TodayComponent />,
   document.getElementById('root')
 );
 
-export default function List({ list: {type} }) {
+export default function Today({ today: { day, month, year } }) {
   return (
     <div>
-      <ListComponent type_list={type} />
+      <TodayComponent day_today={day} month_today={month} year_today={year} />
     </div>
   );
 }
 
-List.propTypes = {
-  list: PropTypes.shape({
-    type: PropTypes.string.isRequired,
-  }),
-};
+Today.propTypes = {
+    today: PropTypes.shape({
+      day: PropTypes.string.isRequired,
+      month: PropTypes.string.isRequired,
+      year: PropTypes.string.isRequired,
+    }),
+  };
