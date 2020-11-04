@@ -1,0 +1,38 @@
+@font-face{
+    font-family: 'Gilroy-ExtraBold';
+    src: url('../fonts/Gilroy-ExtraBold.ttf');
+}
+@font-face{
+    font-family: 'Gilroy-Light';
+    src: url('../fonts/Gilroy-Light.ttf');
+}
+
+.total{
+    height: 100px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cantidad{
+    font-family: 'Gilroy-ExtraBold', Fallback, sans-serif;
+    font-size: 30px;
+    text-align: center; 
+}
+.pad{
+    padding: 20px;
+    margin: 20px;
+}
+.description{
+    font-family: 'Gilroy-Light', Fallback, sans-serif;
+    font-size: 15px;
+    text-align: center; 
+}
+.box-total{    
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table-month{
+    border: 1px solid black;
+    text-align: center;
+}
