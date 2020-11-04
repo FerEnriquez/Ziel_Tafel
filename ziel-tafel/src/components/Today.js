@@ -18,13 +18,6 @@ class TodayComponent extends React.Component{
     
   }
 
-  static getDerivedStateFromProps(props, state) {
-    return {
-      day: props.day_today,
-      month: props.month_today,
-      year: props.year_today
-    };
-  }
 
   render() {
       return (
@@ -70,10 +63,10 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-export default function Today({ today: { day, month, year } }) {
+export default function Today() {
   return (
     <div>
-      <TodayComponent day_today={day} month_today={month} year_today={year} />
+      <TodayComponent />
     </div>
   );
 }

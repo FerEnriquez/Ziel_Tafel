@@ -1,0 +1,26 @@
+@font-face{
+    font-family: 'Gilroy-ExtraBold';
+    src: url('../fonts/Gilroy-ExtraBold.ttf');
+}
+@font-face{
+    font-family: 'Gilroy-Light';
+    src: url('../fonts/Gilroy-Light.ttf');
+}
+
+.bar-menu{
+    font-family: 'Gilroy-ExtraBold', Fallback, sans-serif;
+    background-color: rgb(184, 184, 184);
+    height: 80px;
+    width: 1310px;
+}
+.menu{
+    font-size: 50px;
+    padding: 20px;
+}
+.goals{
+    margin-left: 900px;
+}
+.finances{
+    margin-left: 50px;
+}
+
